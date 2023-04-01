@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gate Operator</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		button {
+			background-color: green;
+			color: white;
+			padding: 20px 40px;
+			border-radius: 30px;
+			font-size: 24px;
+			border: none;
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+		}
+	</style>
+</head>
+<body>
+	<h1>Protected Page</h1>
+	<form method="POST" action="{{ url_for('protected') }}">
+		<button type="submit">Operate Gate</button>
+	</form>
+</body>
+</html>
