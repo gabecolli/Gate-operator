@@ -27,12 +27,17 @@ def pin():
 # define a route for the protected page
 @app.route('/protected', methods=['GET', 'POST'])
 def protected():
+    gate_status = "Stationary"
     # check if the user is authenticated
     if not session.get('authenticated'):
         return redirect(url_for('pin'))
     else:
-        print("sup homie") #replace this with the actual GPIO action you want.
-        return render_template('protected.html')
+        if request.method == 'POST':
+            gate_status = "in motion"
+            print("gate is in motion") #replace this with the actual GPIO action you want.
+            return render_template('protected.html', gate_status=gate_status)
+        else:
+            return render_template('protected.html', gate_status=gate_status)
 
 if __name__ == '__main__':
     app.run(host='192.168.1.194', port=5000)

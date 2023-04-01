@@ -6,9 +6,34 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-	<h1>{{ gate_status }}</h1>
+	<h1 id="my-heading">Gate is {{ gate_status }}</h1>
 	<form method="POST" action="{{ url_for('protected') }}">
 		<button type="submit">Operate Gate</button>
 	</form>
+	<script>
+		// Define the new heading text
+		const newHeading = "Gate is Stationary";
+  
+		// Set a timeout to update the heading after 3 seconds (3000 milliseconds)
+		setTimeout(() => {
+		  // Get the h1 element by its ID
+		  const heading = document.getElementById("my-heading");
+  
+		  // Update the heading's text content
+		  heading.textContent = newHeading;
+		}, 10000);
+	  </script>
+	  <!-- <script>
+		 window.onload = function() {
+		// Define the desired heading text
+		const desiredHeadingText = "Gate is Stationary ";
+  
+		// Get the h1 element by its ID
+		const heading = document.getElementById("my-heading");
+  
+		// Update the heading's text content with the desired heading text
+		heading.textContent = desiredHeadingText;
+		 }
+	  </script> -->
 </body>
 </html>
