@@ -7,10 +7,11 @@
 </head>
 <body>
 	<h1 id="my-heading">Gate is {{ gate_status }}</h1>
-	<form method="POST" action="{{ url_for('protected') }}">
-		<button type="submit">Operate Gate</button>
-	</form>
-	<script>
+	<form method="POST" action="{{ url_for('protected') }}" id="my-form">
+		<button type="submit" name="gate_operation" value="open">Operate Gate</button>
+	  </form>
+	  
+	<!-- <script>
 		// Define the new heading text
 		const newHeading = "Gate is Stationary";
   
@@ -21,8 +22,26 @@
   
 		  // Update the heading's text content
 		  heading.textContent = newHeading;
-		}, 10000);
-	  </script>
+		}, 3000);
+	  </script> -->
+
+	  <script>
+		// Get the form element by its ID
+		const form = document.getElementById("my-form");
+
+		// Add an event listener to the form's submit event
+		form.addEventListener("submit", () => {
+			// Get the h1 element by its ID
+			const heading = document.getElementById("my-heading");
+
+			// Update the heading's text content to say that the gate is in motion
+			heading.textContent = "Gate is in motion";
+		});
+	</script>
+
+
+  
+
 	  <!-- <script>
 		 window.onload = function() {
 		// Define the desired heading text
