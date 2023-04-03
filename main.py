@@ -47,21 +47,25 @@ def protected():
     else:
         if request.method == 'POST':
             gate_status = "in motion"
-            GPIO.setmode(GPIO.BCM)
+            #GPIO.setmode(GPIO.BCM)
 
 # Set the GPIO pin to use for the relay
-            relay_pin = 17
+            #relay_pin = 17
 
             # Set the pin as an output pin
-            GPIO.setup(relay_pin, GPIO.OUT)
+            #GPIO.setup(relay_pin, GPIO.OUT)
 
             # Turn on the relay for 5 seconds
-            GPIO.output(relay_pin, GPIO.HIGH)
+            #GPIO.output(relay_pin, GPIO.HIGH)
+            GPIO.output(7, GPIO.LOW)
+            time.sleep(1)
+            GPIO.output(7,GPIO.HIGH)
             time.sleep(5)
-            GPIO.output(relay_pin, GPIO.LOW)
+            GPIO.output(7,GPIO.LOW)
+            #GPIO.output(relay_pin, GPIO.LOW)
 
             # Cleanup the GPIO
-            GPIO.cleanup()
+            #GPIO.cleanup()
             print("gate is in motion") #replace this with the actual GPIO action you want.
             time.sleep(60)
             session['authenticated'] = False
