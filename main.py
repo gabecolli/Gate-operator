@@ -1,11 +1,17 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import hashlib
 import time
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BOARD)
+GPIO.setwarnings(False)
+GPIO.setup(7, GPIO.OUT)
+GPIO.output(7, GPIO.HIGH)
+
 app = Flask(__name__)
 
 app.secret_key = 'super secret key'
 
-import RPi.GPIO as GPIO
+
 
 
 # Set the GPIO mode to BCM numbering
