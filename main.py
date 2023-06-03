@@ -66,8 +66,8 @@ def protected():
             GPIO.output(7, GPIO.LOW)
             time.sleep(1)
             GPIO.output(7,GPIO.HIGH)
-            time.sleep(5)
-            GPIO.output(7,GPIO.LOW)
+           #time.sleep(2)
+           # GPIO.output(7,GPIO.LOW)
             #GPIO.output(relay_pin, GPIO.LOW)
 
             # Cleanup the GPIO
@@ -107,4 +107,4 @@ GPIO.cleanup()
 
 #TODO will need to change the IP address to the one of the Pi
 if __name__ == '__main__':
-    app.run(host='192.168.1.194', port=5000,debug=True)
+    app.run(host='192.168.1.198', port=5000)
