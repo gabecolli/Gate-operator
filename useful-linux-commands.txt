@@ -1,0 +1,37 @@
+#add to path
+nano ~/.bashrc
+
+#working directory
+/home/gabrielcolli/Gate-operator
+
+
+
+which gunicorn=/home/gabrielcolli/.local/bin/gunicorn
+
+
+export PATH="$PATH:/home/gabrielcolli/.local/bin"
+
+#service file
+sudo nano /etc/systemd/system/gateoperator-gunicorn.service
+
+
+#reload the daemon
+sudo systemctl daemon-reload
+
+
+#start the gunicorn service
+sudo systemctl start gunicorn
+
+
+#enable the gunincorn service
+sudo systemctl enable gunicorn
+
+
+#get gunicorn logs
+sudo journalctl -u gateoperator-gunicorn.service
+
+
+#view running services
+systemctl list-units --type=service
+
+
